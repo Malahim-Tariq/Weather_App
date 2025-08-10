@@ -1,0 +1,107 @@
+:root{
+  --card-w: 420px;
+  --accent: #ffd166;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg,#2b5876 0%, #4e4376 100%);
+  color: #fff;
+  padding:20px;
+}
+
+/* container */
+.main-container{
+  width: min(var(--card-w), 96vw);
+  position: relative;
+  padding: 22px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* search */
+.search-area{
+  display:flex;
+  gap:8px;
+  margin-bottom:14px;
+}
+#cityInput{
+  flex:1;
+  padding:10px 14px;
+  border-radius:40px;
+  border:1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  outline:none;
+  font-size: 15px;
+}
+#cityInput::placeholder{ color: rgba(255,255,255,0.5) }
+#searchBtn{
+  padding:0 14px;
+  border-radius:40px;border:none;
+  background: var(--accent); color:#222; font-weight:600;
+  cursor:pointer;
+}
+
+/* card */
+.weather-card{
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+}
+
+/* top */
+.top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.location-block{ display:flex; gap:10px; align-items:center; }
+.loc-icon{ font-size:20px; color: var(--accent) }
+.location-block h2{ font-size:18px; margin:0 }
+.location-block p{ margin:0; font-size:13px; color: rgba(255,255,255,0.7) }
+.muted{ color: rgba(255,255,255,0.7); font-size:13px }
+
+/* middle */
+.middle-row{ display:flex; align-items:center; gap:16px; margin-top:10px }
+.icon-wrap{ width:110px; height:110px; display:grid; place-items:center; font-size:64px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45)); }
+.temp-wrap h1{ margin:0; font-size:40px; letter-spacing: -1px }
+.temp-wrap p{ margin:4px 0 0; color: rgba(255,255,255,0.9) }
+
+/* bottom */
+.bottom-row{ margin-top:14px }
+.extra{ display:flex; justify-content:space-between; gap:10px }
+.extra > div{ text-align:center; min-width:80px; background: rgba(255,255,255,0.02); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.03) }
+.extra strong{ display:block; font-size:16px }
+
+/* clouds */
+.clouds{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+.cloud{ position:absolute; background: rgba(255,255,255,0.06); border-radius:50%; filter: blur(10px); opacity:0.9; }
+.c1{ width:220px; height:80px; left:-180px; top:12%; animation: floatLeft 28s linear infinite; }
+.c2{ width:160px; height:60px; left:-260px; top:45%; animation: floatLeft 36s linear infinite; opacity:0.75 }
+.c3{ width:260px; height:100px; left:-120px; top:70%; animation: floatLeft 44s linear infinite; opacity:0.85 }
+
+@keyframes floatLeft {
+  0%{ transform: translateX(0) }
+  100%{ transform: translateX(160vw) }
+}
+
+/* small screens */
+@media (max-width:420px){
+  .middle-row{ gap:10px }
+  .icon-wrap{ width:84px; height:84px; font-size:48px }
+  .temp-wrap h1{ font-size:34px }
+  #cityInput{ font-size:14px }
+}
+
+/* credit text */
+.credit{ margin-top:12px; font-size:12px; color: rgba(255,255,255,0.6); text-align:center; z-index:5 }

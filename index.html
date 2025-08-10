@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="main-container">
+
+    <header class="search-area">
+      <input id="cityInput" type="text" placeholder="Search-City" />
+      <button id="searchBtn" title="Search">Search</button>
+    </header>
+
+    <section class="weather-card" id="weatherCard" aria-live="polite">
+      <div class="top-row">
+        <div class="location-block">
+          <div class="loc-icon">📍</div>
+          <div>
+            <h2 id="cityName">—</h2>
+            <p id="countryName" class="muted">Offline Data</p>
+          </div>
+        </div>
+
+        <div class="date-block">
+          <p id="dayName" class="muted">—</p>
+          <p id="fullDate" class="muted">—</p>
+        </div>
+      </div>
+
+      <div class="middle-row">
+        <div class="icon-wrap" id="iconWrap">☀️</div>
+        <div class="temp-wrap">
+          <h1 id="temp">--°C</h1>
+          <p id="condition">—</p>
+        </div>
+      </div>
+
+      <div class="bottom-row">
+        <div class="extra">
+          <div><strong id="humidity">--</strong><span>Humidity</span></div>
+          <div><strong id="wind">--</strong><span>Wind</span></div>
+          <div><strong id="clouds">--</strong><span>Clouds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="clouds" aria-hidden="true">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+    </div>
+
+    <p class="credit">Made By Malahim Tariq</p>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
